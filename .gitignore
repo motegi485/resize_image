@@ -1,0 +1,16 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# input,outputフォルダの中身を無視するが、.gitkeepは例外として管理
+input/*
+output/*
+!input/.gitkeep
+!output/.gitkeep
