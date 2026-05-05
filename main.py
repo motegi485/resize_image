@@ -1,9 +1,14 @@
 import os
 from PIL import Image
+from pathlib import Path
 
 # 入出力パス設定
-input_path = "input/ChatGPT-Image.png"
+filename = input(str("リサイズする画像のファイル名（拡張子も含める）: "))
+filename_without_ext = Path(filename).stem
+input_path = f"input/{filename}"
 output_path = "output"
+
+# 画像サイズを設定
 sizes = [192, 512]
 
 def resize_image(input_path, output_path, sizes):
@@ -12,8 +17,8 @@ def resize_image(input_path, output_path, sizes):
     img = Image.open(input_path)
     for size in sizes:
         resized_img = img.resize((size, size), Image.Resampling.LANCZOS)
-        resized_img.save(f"{output_path}/app_icon_{size}x{size}.png")
+        resized_img.save(f"{output_path}/{filename_without_ext}_{size}x{size}.png")
         # 出力ファイル名
-        print(f"Saved: icon_{size}x{size}.png")
+        print(f"Saved: {filename_without_ext}_{size}x{size}.png")
 
 resize_image(input_path, output_path, sizes)
