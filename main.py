@@ -3,10 +3,10 @@ from PIL import Image
 from pathlib import Path
 
 # 入出力パス設定
-filename = input(str("リサイズする画像のファイル名（拡張子も含める）: "))
+filename = input("リサイズする画像のファイル名（拡張子も含める）: ")
 filename_without_ext = Path(filename).stem
-input_path = f"input/{filename}"
-output_path = "output"
+input_path = Path(f"input/{filename}")
+output_path = Path("output")
 
 # 画像サイズを設定
 sizes = [192, 512]
